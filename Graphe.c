@@ -195,34 +195,27 @@ int condition_modele_deux(int* degre)
 	for (int k = 0; k < N && flag; k++)
 	{
 		somme_degre_courant += degre[k];
-		//somme_degre_restant = somme_degre - somme_degre_courant;
 		somme = 0;
 		
 		for (int j = k+1; j < N-1; j++)
 		{
 			somme += min(k,degre[j]);
 		}
-		printf(" somme courantes des degres : %d \n", somme_degre_courant);
-		//printf("degre courant : %d > somme :  %d\n",somme_degre_courant, ((k * (k-1)) + somme));
-		printf("test modele %d <= %d \n",  somme_degre_courant, ((k * (k-1)) + somme));
 		if (somme_degre_courant > ((k * (k-1)) + somme)){
 			flag = 0;
-			printf("gnagnagna\n");
 		}
 	}
 	
 	return !flag;
 }
 
-void gen_modele_deux(Graphe *g, int* degre)
+
+void init_modele_deux(Graphe g, int *degre)
 {
 	do
 	{
-		printf("***Initialisation des degres***\n");
 		init_degre(degre);
 	} while (condition_modele_deux(degre));
-	
-	printf("\n\n\n**** Les degre respecte le modèle **** \n\n\n");
 	
 }
 
@@ -242,51 +235,64 @@ int test_voisin(Graphe *graphe, int a, int b)
 {
 	int est_voisin = 0;
 	
-	
 	Element *actuel = NULL;
 	
 	actuel = &graphe->listeAdj[a];
 	
 	if(actuel == NULL)
 		exit(EXIT_FAILURE);
-		
-	
-	
+
 	while(actuel->suivant != NULL){
-			if(actuel->suivant->id == b){
-				printf("\nPROBLEME A ET B SONT VOISIN \n\n");
-				return 1;
-			}
-			actuel = actuel->suivant;
-		}
 		
-	
+		if(actuel->suivant->id == b){
+			return 1;
+		}
+		actuel = actuel->suivant;
+	}
+		
 	return 0;
 }
 
-void test_modele_deux(Graphe *g, int *degre)
+void gen_modele_deux(Graphe *g, int *degre)
 {
 	int a = 0;
 	int b = 0;
+	
+	init_modele_deux(g, degre);
 	do
 	{
 		a = rand_entier(N-1);
 		b = rand_entier(N-1);
-		
-		printf("deg a = %d , deg b = %d , demi arete restante = %d \n ",degre[a], degre[b], arete_distribuable(degre));
-		
-		if(degre[a] > 0 && degre[b] > 0 && a != b && test_voisin(g,a,b))
+		if(degre[a] > 0 && degre[b] > 0 && a != b && !test_voisin(g,a,b))
 		{
 			degre[a]--;
 			degre[b]--;
 			ajout_arc(g, a, b);
-			ajout_arc(g, b, a);
 		}
-		
-		affiche_degre(degre);
-		
 	} while (arete_distribuable(degre) > 0);
+}
+
+void gen_modele_trois(Graphe *g) {
 	
-	if(arete_distribuable(degre) == 0)
-		exit(EXIT_SUCCESS);
+	// M0 noeuds de départs connectés
+	int i,j;
+	for (i = 0; i < M0; i++)
+	{
+		for (j = i + 1; j < M0; j++)
+		{
+			ajout_arc(g, i, j);
+		}
+	}
+	
+	int somme_degre = M0 * (M0 - 1);
+	int nouvelle_arete;
+	// Ajout des sommets restants connectés à M autres
+	for (i = M0; i < g->nbSommets; i++)
+	{
+		j = 0;
+		while ( j < M )
+		{
+			nouvelle_arete = rand01();
+		}
+	}
 }

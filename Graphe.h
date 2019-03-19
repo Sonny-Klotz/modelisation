@@ -10,8 +10,8 @@
 #define N 10
 #define p 0.01
 // Attention m0 << N
-#define m0 2
-#define m 2
+#define M0 2
+#define M 2
 
 typedef struct Graphe Graphe;
 struct Graphe
@@ -55,12 +55,12 @@ void gen_modele_un(Graphe *g);
 void init_degre(int *tab);
 int min(int a, int b);
 int condition_modele_deux(int* degre);
-void gen_modele_deux(Graphe *g, int* degre);
+void init_modele_deux(Graphe *g, int* degre);
 int arete_distribuable(int *degre);
-void test_modele_deux(Graphe *g, int *degre);
+void gen_modele_deux(Graphe *g, int *degre);
 
 /* Modele 3 */
-
+void gen_modele_trois(Graphe *g);
 
 
 #endif
