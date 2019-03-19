@@ -9,17 +9,20 @@
 
 #define N 10
 #define p 0.01
+// Attention m0 << N
+#define m0 2
+#define m 2
 
 typedef struct Graphe Graphe;
 struct Graphe
 {
 	int nbSommets;
+	int *degres;
     Element *listeAdj;
 };
 
 /* Allocation mémoire */
 Graphe* init_Graphe();
-void init_degre(int *tab);
 
 /* Affichage */
 void afficher_liste_sommets(Graphe *graphe);
@@ -41,6 +44,7 @@ void suppression_graphe(Graphe *graphe);
 void gen_modele_un(Graphe *g);
 
 /* Modele 2 */
+void init_degre(int *tab);
 int min(int a, int b);
 int condition_modele_deux(int* degre);
 void gen_modele_deux(Graphe *g, int* degre);

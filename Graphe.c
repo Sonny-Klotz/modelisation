@@ -4,8 +4,14 @@ Graphe* init_Graphe() {
 	
     Graphe *graphe = NULL;
     graphe = malloc(sizeof(*graphe));
+    
+    graphe->nbSommets = 0;
+    
     graphe->listeAdj = NULL;
     graphe->listeAdj = malloc(N*sizeof(*graphe->listeAdj));
+    
+    graphe->degres = NULL;
+    graphe->degres = malloc(N*sizeof(int));
 
     if (graphe == NULL || graphe->listeAdj == NULL)
     {
@@ -17,20 +23,11 @@ Graphe* init_Graphe() {
 		graphe->listeAdj[i].id = i;
 		graphe->listeAdj[i].suivant = NULL;
 		graphe->nbSommets++;
+		graphe->degres[i] = 0;
 	}
 	
 
     return graphe;
-}
-
-
-void init_degre(int *tab)
-{
-	for (int i = 0; i < N; i++)
-	{
-		tab[i] = rand_entier(N-1);
-	}
-	
 }
 
 void afficher_liste_sommets(Graphe *graphe) {
@@ -110,6 +107,10 @@ void ajout_arc(Graphe *graphe, int id_Sommet_A, int id_Sommet_B) {
 	
 	ajout_sommet(graphe, id_Sommet_A, id_Sommet_B); 
 	ajout_sommet(graphe, id_Sommet_B, id_Sommet_A);
+	
+	graphe->degres[id_Sommet_A]++;
+	graphe->degres[id_Sommet_B]++;
+	
 }
 
 
@@ -140,6 +141,7 @@ void suppression_graphe(Graphe *graphe) {
 	}
 
 	free(graphe->listeAdj);
+	free(graphe->degres);
 	printf("+*+*+*Suppression du graphe*+*+*+\n\n");
     free(graphe);
     
@@ -169,6 +171,17 @@ int min(int a, int b){
 	else
 		return b;
 }
+
+
+void init_degre(int *tab)
+{
+	for (int i = 0; i < N; i++)
+	{
+		tab[i] = rand_entier(N-1);
+	}
+	
+}
+
 
 int condition_modele_deux(int* degre)
 {
