@@ -271,7 +271,23 @@ void gen_modele_deux(Graphe *g, int *degre)
 	} while (arete_distribuable(degre) > 0);
 }
 
+void maj_degre_cumule(Graphe *g, int *cumul, int k) {
+	
+	int i = 0;
+	cumul[0] = g->degres[0];
+	
+	for (i = 1; i < k; i++)
+	{
+		cumul[i] = cumul[i - 1] + g->degres[i];
+	}
+	for (i = 0; i < k; i++)
+	{
+		cumul[i] = cumul[i] / cumul[k - 1];
+	}
+}
+
 void gen_modele_trois(Graphe *g) {
+	
 	
 	// M0 noeuds de départs connectés
 	int i,j;
@@ -283,11 +299,15 @@ void gen_modele_trois(Graphe *g) {
 		}
 	}
 	
+	//probas cumule
+	double cumul[g->nbSommets];
+	
 	int somme_degre = M0 * (M0 - 1);
 	int nouvelle_arete;
 	// Ajout des sommets restants connectés à M autres
 	for (i = M0; i < g->nbSommets; i++)
 	{
+		maj_degre_cumule(g, cumul, i);
 		j = 0;
 		while ( j < M )
 		{
