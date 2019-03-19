@@ -1,3 +1,10 @@
+# Trois modeles : 1 2 et 3 respectivement
+# MODELE = "ErdosRenyi"
+# MODELE = "BenderCanfield"
+# MODELE = "AlbertBarrabasi"
+
+# Nombre de sommets du graphe généré
+# N = 10
 
 #option -g debug pour exécuter avec valgrind : yes / no
 DEBUG = no
