@@ -15,7 +15,7 @@ void parcours_largeur(Graphe *g, int racine);
 void diametre_distanceMoy(Graphe *g);
 
 /* Moyenne des densités des sommets du graphe */
-void densite_sommet(Graphe *g, int sommet);
-void densite_moyenne(Graphe *g);
+double densite_sommet(Graphe *g, int sommet);
+double densite_moyenne(Graphe *g);
 
 #endif

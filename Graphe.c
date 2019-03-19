@@ -5,7 +5,7 @@ Graphe* init_Graphe() {
     Graphe *graphe = NULL;
     graphe = malloc(sizeof(*graphe));
     
-    graphe->nbSommets = 0;
+    graphe->nbSommets = N;
     
     graphe->listeAdj = NULL;
     graphe->listeAdj = malloc(N*sizeof(*graphe->listeAdj));
@@ -22,7 +22,6 @@ Graphe* init_Graphe() {
 	{
 		graphe->listeAdj[i].id = i;
 		graphe->listeAdj[i].suivant = NULL;
-		graphe->nbSommets++;
 		graphe->degres[i] = 0;
 	}
 	
@@ -135,14 +134,14 @@ void suppression_graphe(Graphe *graphe) {
 		
 		if(graphe->listeAdj[i].suivant != NULL)
 		{
-			printf("***Début de la suppression des voisins de %d***\n", graphe->listeAdj[i].id);
+			//printf("***Début de la suppression des voisins de %d***\n", graphe->listeAdj[i].id);
 			suppression_voisins(graphe->listeAdj[i].suivant);
 		}
 	}
 
 	free(graphe->listeAdj);
 	free(graphe->degres);
-	printf("+*+*+*Suppression du graphe*+*+*+\n\n");
+	//printf("+*+*+*Suppression du graphe*+*+*+\n\n");
     free(graphe);
     
 }

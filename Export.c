@@ -32,8 +32,6 @@ void gnu(int tab_degres[],int degre_graph,char *nom_fichier) {
  */
 void dessine_graph(Graphe *g,char *nom_fichier){
 	
-	void dessine_graph(Graphe *g, char *nom_fichier){
-	
 	FILE *f = NULL;
 	f = fopen(nom_fichier, "w");
 	
@@ -64,4 +62,4 @@ void dessine_graph(Graphe *g,char *nom_fichier){
 	
 	fclose(f);
 }
-}
+

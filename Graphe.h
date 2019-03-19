@@ -7,8 +7,8 @@
 #include "Liste.h"
 #include "Random.h"
 
-#define N 100
-#define p 0.05
+#define N 10
+#define p 0.1
 // Attention m0 << N
 #define M0 2
 #define M 2

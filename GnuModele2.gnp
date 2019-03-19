@@ -1,0 +1,4 @@
+set term jpeg
+set output "DistributionDegresModele2.jpg"
+plot "BenderCanfield-degre.txt" w lp
+

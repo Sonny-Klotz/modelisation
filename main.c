@@ -1,4 +1,5 @@
 #include "Graphe.h"
+#include "Proprietes.h"
 
 int main ( int argc , char *argv[] )
 {
@@ -13,10 +14,10 @@ int main ( int argc , char *argv[] )
 	Graphe *g = NULL;
 	g = init_Graphe();
 	//init_degre(degre);
-	gen_modele_deux(g, degre);
-	afficher_graphe(g);
+	gen_modele_un(g);
 	//affiche_degre(degre);
-	
+	printf("\n Densite : %f \n",densite_moyenne(g));
+	//test_modele_deux(g, degre);
 	
 	
 	
@@ -24,7 +25,7 @@ int main ( int argc , char *argv[] )
 	 * 	Que le sommet 2 à pour voisin le sommet 4
 	 *  Et que le sommet 6 à pour voisin le sommet 3 */
 	
-	//afficher_graphe(g);
+	afficher_graphe(g);
 	
 	/* test de l'ajout des arcs
 	ajout_arc(g,1,3);

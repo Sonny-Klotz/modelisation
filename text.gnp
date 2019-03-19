@@ -1,3 +1,0 @@
-set term jpeg
-set output "DistributionDegres.jpg"
-plot "degres.txt" w lp

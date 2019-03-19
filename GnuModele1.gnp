@@ -1,0 +1,4 @@
+set term jpeg
+set output "DistributionDegresModele1.jpg"
+plot "ErdosRenyi-degre.txt" w lp
+
