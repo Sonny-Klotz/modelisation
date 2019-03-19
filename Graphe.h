@@ -19,6 +19,14 @@ struct Graphe
 	int nbSommets;
 	int *degres;
     Element *listeAdj;
+    
+    int degreMax;
+    int nbAretes;
+    double degreMoy;
+    double densiteG;
+    double densiteMoy;
+    int diametre;
+    double distanceMoy;
 };
 
 /* Allocation mémoire */
