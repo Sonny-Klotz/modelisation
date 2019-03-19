@@ -1,6 +1,6 @@
 #ifndef EXPORT_H
 #define EXPORT_H
-
+#include "Graphe.h"
 #include <stdio.h>
 
 /* Distribution des degrés */

@@ -1,0 +1,4 @@
+set term jpeg
+set output "DistributionDegresModele3.jpg"
+plot "AlbertBarrabasi.txt" w lp
+

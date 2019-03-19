@@ -1,4 +1,5 @@
 #include "Graphe.h"
+#include "Proprietes.h"
 
 int main ( int argc , char *argv[] )
 {
@@ -13,10 +14,10 @@ int main ( int argc , char *argv[] )
 	Graphe *g = NULL;
 	g = init_Graphe();
 	//init_degre(degre);
-	gen_modele_deux(g, degre);
+	gen_modele_un(g);
 	//affiche_degre(degre);
-	
-	test_modele_deux(g, degre);
+	printf("\n Densite : %f \n",densite_moyenne(g));
+	//test_modele_deux(g, degre);
 	
 	
 	
