@@ -14,9 +14,9 @@ int main ( int argc , char *argv[] )
 	g = init_Graphe();
 	//init_degre(degre);
 	gen_modele_deux(g, degre);
+	afficher_graphe(g);
 	//affiche_degre(degre);
 	
-	test_modele_deux(g, degre);
 	
 	
 	

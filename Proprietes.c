@@ -2,9 +2,10 @@
 
 void aretes_degreMax_degreMoy_densite (Graphe *g) {
 	
-	int i, somme;
+	int i, somme, max;
 	
 	somme = 0;
+	max = g->degres[0];
 	for (i = 0; i < g->nbSommets; i++)
 	{
 		somme += g->degres[i];
@@ -14,14 +15,5 @@ void aretes_degreMax_degreMoy_densite (Graphe *g) {
 	g->nbAretes = somme / 2;
 	g->degreMax = max;
 	g->degreMoy = somme / g->nbSommets;
-	g->densite = (2 * g->nbAretes) / (g->nbSommets * (g->nbSommets - 1));
-}
-
-void densite_moyenne(Graphe *g) {
-	
-	int i;
-	for (i = 0; i < g->nbSommets; i++)
-	{
-		g->listeAdj[i]
-	}
+	g->densiteG = (2 * g->nbAretes) / (g->nbSommets * (g->nbSommets - 1));
 }

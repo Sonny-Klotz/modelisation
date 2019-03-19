@@ -210,7 +210,7 @@ int condition_modele_deux(int* degre)
 }
 
 
-void init_modele_deux(Graphe g, int *degre)
+void init_modele_deux(int *degre)
 {
 	do
 	{
@@ -233,7 +233,6 @@ int arete_distribuable(int *degre){
 
 int test_voisin(Graphe *graphe, int a, int b)
 {
-	int est_voisin = 0;
 	
 	Element *actuel = NULL;
 	
@@ -258,7 +257,7 @@ void gen_modele_deux(Graphe *g, int *degre)
 	int a = 0;
 	int b = 0;
 	
-	init_modele_deux(g, degre);
+	init_modele_deux(degre);
 	do
 	{
 		a = rand_entier(N-1);
@@ -292,7 +291,7 @@ void gen_modele_trois(Graphe *g) {
 		j = 0;
 		while ( j < M )
 		{
-			nouvelle_arete = rand01();
+			rand01();
 		}
 	}
 }
