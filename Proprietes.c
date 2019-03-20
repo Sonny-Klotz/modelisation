@@ -74,6 +74,5 @@ void densite_moyenne(Graphe *g){
 	for(i = 0; i < g->nbSommets; i++){
 			somme_densite += densite_sommet(g, i);
 	}
-	
-	g->densiteMoy = somme_densite/g->nbSommets;
+	g->densiteMoy = somme_densite/(double)g->nbSommets;
 }

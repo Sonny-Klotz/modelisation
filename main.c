@@ -40,7 +40,7 @@ int main ( int argc , char *argv[] )
 	densite_moyenne(g);
 	printf("nombre d'aretes : %d\ndegre du graphe : %d\ndegre moyen des sommets : %F\ndensite du graphe : %F\ndensite moyenne des sommets : %f\n",
 	g->nbAretes, g->degreMax, g->degreMoy, g->densiteG, g->densiteMoy);
-	//gnu(g->degres, g->degreMax, nom_degre);
+	gnu(g->degres, g->degreMax, nom_degre);
 	dessine_graph(g, nom_graph);
 	
 	suppression_graphe(g);
