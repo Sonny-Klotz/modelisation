@@ -1,7 +1,7 @@
 # Trois modeles : 1 2 et 3 respectivement
-# MODELE = ErdosRenyi
+ MODELE = ErdosRenyi
 # MODELE = BenderCanfield
- MODELE = AlbertBarabasi
+# MODELE = AlbertBarabasi
 
 # Nombre de sommets du graphe généré
 # N = 10
@@ -51,7 +51,7 @@ endif
 	
 
 graph:
-	neato -Tpdf -o $@$(MODELE).pdf $@$(MODELE)
+	neato -Tpdf -overlap=scale -o $@$(MODELE).pdf $@$(MODELE)
 
 
 #Nettoyage du projet
