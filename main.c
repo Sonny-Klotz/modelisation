@@ -14,10 +14,11 @@ int main ( int argc , char *argv[] )
 	Graphe *g = NULL;
 	g = init_Graphe();
 	//init_degre(degre);
-	gen_modele_un(g);
+	//gen_modele_un(g);
 	//affiche_degre(degre);
-	printf("\n Densite : %f \n",densite_moyenne(g));
+	//printf("\n Densite : %f \n",densite_moyenne(g));
 	//test_modele_deux(g, degre);
+	gen_modele_deux(g, degre);
 	
 	
 	

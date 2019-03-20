@@ -8,7 +8,7 @@
 #include "Random.h"
 
 #define N 10
-#define p 0.1
+#define p 0.2
 // Attention m0 << N
 #define M0 2
 #define M 2
@@ -60,6 +60,7 @@ int arete_distribuable(int *degre);
 void gen_modele_deux(Graphe *g, int *degre);
 
 /* Modele 3 */
+void maj_degre_cumule(Graphe *g, double *cumul, int k);
 void gen_modele_trois(Graphe *g);
 
 

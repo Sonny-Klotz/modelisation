@@ -208,8 +208,7 @@ int condition_modele_deux(int* degre)
 	return !flag;
 }
 
-
-void init_modele_deux(int *degre)
+void init_modele_deux(int* degre)
 {
 	do
 	{
@@ -231,7 +230,7 @@ int arete_distribuable(int *degre){
 }
 
 int test_voisin(Graphe *graphe, int a, int b)
-{
+{	
 	
 	Element *actuel = NULL;
 	
@@ -239,15 +238,14 @@ int test_voisin(Graphe *graphe, int a, int b)
 	
 	if(actuel == NULL)
 		exit(EXIT_FAILURE);
-
+		
 	while(actuel->suivant != NULL){
-		
-		if(actuel->suivant->id == b){
-			return 1;
+			if(actuel->suivant->id == b){
+				return 1;
+			}
+			actuel = actuel->suivant;
 		}
-		actuel = actuel->suivant;
-	}
-		
+	
 	return 0;
 }
 
@@ -261,16 +259,29 @@ void gen_modele_deux(Graphe *g, int *degre)
 	{
 		a = rand_entier(N-1);
 		b = rand_entier(N-1);
+		
+		//printf("deg %d = %d , deg %d = %d , demi arete restante = %d , est-ce que a et b sont voisin : %d \n ",a ,degre[a], b, degre[b], arete_distribuable(degre) ,test_voisin(g,a,b));
+		//afficher_graphe(g);
+		//affiche_degre(degre);
 		if(degre[a] > 0 && degre[b] > 0 && a != b && !test_voisin(g,a,b))
 		{
 			degre[a]--;
 			degre[b]--;
 			ajout_arc(g, a, b);
+			//afficher_graphe(g);
+		}else if (degre[a] == 0){
+		//	printf("\n Le degré de %d est %d (donc on ne peut pas le relier) \n", a, degre[a]);
+		}else if (degre[b] == 0){
+			//printf("\n Le degré de %d est %d (donc on ne peut pas le relier) \n", b, degre[b]);
+		}else if (!test_voisin(g,a,b)){
+			//printf("\n Les sommets %d et %d sont voisins\n\n", a, b);
 		}
+		
 	} while (arete_distribuable(degre) > 0);
+	
 }
-
-void maj_degre_cumule(Graphe *g, int *cumul, int k) {
+/*
+void maj_degre_cumule(Graphe *g, double *cumul, int k) {
 	
 	int i = 0;
 	cumul[0] = g->degres[0];
@@ -283,6 +294,10 @@ void maj_degre_cumule(Graphe *g, int *cumul, int k) {
 	{
 		cumul[i] = cumul[i] / cumul[k - 1];
 	}
+}
+
+int proba_sommet(double alea, int *cumul) {
+	
 }
 
 void gen_modele_trois(Graphe *g) {
@@ -300,17 +315,17 @@ void gen_modele_trois(Graphe *g) {
 	
 	//probas cumule
 	double cumul[g->nbSommets];
+	int indice;
 	
 	int somme_degre = M0 * (M0 - 1);
-	int nouvelle_arete;
 	// Ajout des sommets restants connectés à M autres
 	for (i = M0; i < g->nbSommets; i++)
 	{
-		maj_degre_cumule(g, cumul, i);
+		maj_degre_cumule(g, cumul, i + 1);
 		j = 0;
 		while ( j < M )
 		{
-			rand01();
+			indice = proba_sommet(rand01(), cumul);
 		}
 	}
-}
+}*/
