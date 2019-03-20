@@ -298,12 +298,12 @@ void maj_degre_cumule(Graphe *g, double *cumul, int k) {
 
 int proba_sommet(double alea, int *cumul) {
 	
-}
+}*/
 
 void gen_modele_trois(Graphe *g) {
 	
 	
-	// M0 noeuds de départs connectés
+	// M0 noeuds de départs connectés fortement
 	int i,j;
 	for (i = 0; i < M0; i++)
 	{
@@ -313,19 +313,21 @@ void gen_modele_trois(Graphe *g) {
 		}
 	}
 	
-	//probas cumule
-	double cumul[g->nbSommets];
-	int indice;
-	
+	int sommet;
 	int somme_degre = M0 * (M0 - 1);
 	// Ajout des sommets restants connectés à M autres
 	for (i = M0; i < g->nbSommets; i++)
 	{
-		maj_degre_cumule(g, cumul, i + 1);
 		j = 0;
 		while ( j < M )
 		{
-			indice = proba_sommet(rand01(), cumul);
+			do {
+				sommet = rand_entier(N-1);
+			}while( rand01() > ((double) g->degres[sommet] / (double) somme_degre) || sommet == i || test_voisin(g, i, sommet));
+			
+			ajout_arc(g, i, sommet);
+			somme_degre += 2;
+			j++;
 		}
 	}
-}*/
+}

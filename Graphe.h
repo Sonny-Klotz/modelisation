@@ -7,10 +7,10 @@
 #include "Liste.h"
 #include "Random.h"
 
-#define N 10
-#define p 0.2
+#define N 100
+#define p 0.05
 // Attention m0 << N
-#define M0 2
+#define M0 5
 #define M 2
 
 typedef struct Graphe Graphe;
