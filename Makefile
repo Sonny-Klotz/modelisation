@@ -51,7 +51,7 @@ endif
 	
 
 graph:
-	neato -Tpdf -overlap=scale -o $@$(MODELE).pdf $@$(MODELE)
+	neato -Tpdf -o $@$(MODELE).pdf $@$(MODELE)
 
 
 #Nettoyage du projet
