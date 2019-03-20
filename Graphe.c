@@ -5,7 +5,7 @@ Graphe* init_Graphe() {
     Graphe *graphe = NULL;
     graphe = malloc(sizeof(*graphe));
     
-    graphe->nbSommets = 0;
+    graphe->nbSommets = N;
     
     graphe->listeAdj = NULL;
     graphe->listeAdj = malloc(N*sizeof(*graphe->listeAdj));
@@ -22,7 +22,6 @@ Graphe* init_Graphe() {
 	{
 		graphe->listeAdj[i].id = i;
 		graphe->listeAdj[i].suivant = NULL;
-		graphe->nbSommets++;
 		graphe->degres[i] = 0;
 	}
 	
@@ -135,14 +134,14 @@ void suppression_graphe(Graphe *graphe) {
 		
 		if(graphe->listeAdj[i].suivant != NULL)
 		{
-			printf("***Début de la suppression des voisins de %d***\n", graphe->listeAdj[i].id);
+			//printf("***Début de la suppression des voisins de %d***\n", graphe->listeAdj[i].id);
 			suppression_voisins(graphe->listeAdj[i].suivant);
 		}
 	}
 
 	free(graphe->listeAdj);
 	free(graphe->degres);
-	printf("+*+*+*Suppression du graphe*+*+*+\n\n");
+	//printf("+*+*+*Suppression du graphe*+*+*+\n\n");
     free(graphe);
     
 }
@@ -210,7 +209,7 @@ int condition_modele_deux(int* degre)
 }
 
 
-void init_modele_deux(Graphe g, int *degre)
+void init_modele_deux(int *degre)
 {
 	do
 	{
@@ -233,7 +232,6 @@ int arete_distribuable(int *degre){
 
 int test_voisin(Graphe *graphe, int a, int b)
 {
-	int est_voisin = 0;
 	
 	Element *actuel = NULL;
 	
@@ -258,7 +256,7 @@ void gen_modele_deux(Graphe *g, int *degre)
 	int a = 0;
 	int b = 0;
 	
-	init_modele_deux(g, degre);
+	init_modele_deux(degre);
 	do
 	{
 		a = rand_entier(N-1);
@@ -292,7 +290,7 @@ void gen_modele_trois(Graphe *g) {
 		j = 0;
 		while ( j < M )
 		{
-			nouvelle_arete = rand01();
+			rand01();
 		}
 	}
 }

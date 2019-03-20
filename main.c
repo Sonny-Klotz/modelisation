@@ -25,7 +25,7 @@ int main ( int argc , char *argv[] )
 	 * 	Que le sommet 2 à pour voisin le sommet 4
 	 *  Et que le sommet 6 à pour voisin le sommet 3 */
 	
-	//afficher_graphe(g);
+	afficher_graphe(g);
 	
 	/* test de l'ajout des arcs
 	ajout_arc(g,1,3);

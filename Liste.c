@@ -18,7 +18,7 @@ Element* init_element(int id) {
 
 void suppression_voisins(Element* actuel) {
 	
-	printf("        Element qui va être supprimé : %d\n", actuel->id);
+	//printf("        Element qui va être supprimé : %d\n", actuel->id);
 	if(actuel->suivant != NULL)
 		suppression_voisins(actuel->suivant);
 		

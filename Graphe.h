@@ -8,7 +8,7 @@
 #include "Random.h"
 
 #define N 10
-#define p 0.01
+#define p 0.1
 // Attention m0 << N
 #define M0 2
 #define M 2
@@ -55,7 +55,7 @@ void gen_modele_un(Graphe *g);
 void init_degre(int *tab);
 int min(int a, int b);
 int condition_modele_deux(int* degre);
-void init_modele_deux(Graphe *g, int* degre);
+void init_modele_deux(int* degre);
 int arete_distribuable(int *degre);
 void gen_modele_deux(Graphe *g, int *degre);
 
