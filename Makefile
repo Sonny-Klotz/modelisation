@@ -1,7 +1,7 @@
 # Trois modeles : 1 2 et 3 respectivement
- MODELE = ErdosRenyi
+#MODELE = ErdosRenyi
 # MODELE = BenderCanfield
-# MODELE = AlbertBarabasi
+ MODELE = AlbertBarabasi
 
 # Nombre de sommets du graphe généré
 # N = 10
