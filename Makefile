@@ -1,13 +1,13 @@
 # Trois modeles : 1 2 et 3 respectivement
- MODELE = ErdosRenyi
+# MODELE = ErdosRenyi
 # MODELE = BenderCanfield
-# MODELE = AlbertBarabasi
+ MODELE = AlbertBarabasi
 
 # Nombre de sommets du graphe généré
 # N = 10
 
 #option -g debug pour exécuter avec valgrind : yes / no
-DEBUG = yes
+DEBUG = no
 
 ifeq ($(DEBUG),yes)
 	CFLAGS = -g
@@ -41,7 +41,14 @@ main.o : Graphe.h
 	
 #Générations des courbes et du graphe
 plot:
-	gnuplot -persist text.gnp
+ifeq ($(MODELE),ErdosRenyi)
+	gnuplot -persist GnuModele1.gnp
+else ifeq ($(MODELE),BenderCanfield)
+	gnuplot -persist GnuModele2.gnp
+else
+	gnuplot -persist GnuModele3.gnp
+endif
+	
 
 graph:
 	neato -Tpdf -o $@$(MODELE).pdf $@$(MODELE)

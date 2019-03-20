@@ -16,6 +16,6 @@ void diametre_distanceMoy(Graphe *g);
 
 /* Moyenne des densités des sommets du graphe */
 double densite_sommet(Graphe *g, int sommet);
-double densite_moyenne(Graphe *g);
+void densite_moyenne(Graphe *g);
 
 #endif

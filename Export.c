@@ -2,7 +2,7 @@
 
 /* Sort un fichier .txt contennant la distribution des degrés d'un graphe
  */
-void gnu(int tab_degres[],int degre_graph,char *nom_fichier) {
+void gnu(int *tab_degres, int degre_graph, char *nom_fichier) {
 	
 	int i = 0;
 	int distribution_degres[degre_graph + 1];
